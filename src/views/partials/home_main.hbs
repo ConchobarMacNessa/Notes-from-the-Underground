@@ -1,7 +1,22 @@
 <main class="content__main">
   <div class="content__container">
+    
+    {{#each articles}}
 
-    <p>articles go here</p>
+    hi
+    <article class="article">
+      <header class="article__header">
+        <div class="article__author">
+          {{username}}
+        </div>
+      </header>
+
+      <h3 class="article__title">{{title}}</h3>
+      <p class="article__body">{{body_text}}
+      </p>
+    </article>
+
+    {{/each}}
 
   </div>
 </main>
