@@ -17,9 +17,9 @@ CREATE TABLE articles (
   body_text     VARCHAR(20000)  NOT NULL
 );
 
-INSERT INTO user (username, github_id, display_name, password, avatar_url)
+INSERT INTO users (username, github_id, password, avatar_url)
 VALUES
-('Wordsworth', NULL, daffodils, 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg');
+('Wordsworth', NULL, 'daffodils', 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg');
 
 INSERT INTO articles (author_id, title, body_text)
 VALUES (1, 'Most Sweet It Is With Unuplifted Eyes', 'Most sweet it is with unuplifted eyes
