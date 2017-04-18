@@ -1,7 +1,22 @@
 <main class="content__main">
   <div class="content__container">
 
-    <p>articles go here</p>
+    {{#each poems}}
+
+    <article class="poem">
+      <header class="poem__header">
+        <div class="poem__author">
+          {{username}}
+        </div>
+          <img class="poem__author_avatar" src={{avatar_url}}>
+      </header>
+
+      <h3 class="poem__title">{{title}}</h3>
+      <p class="poem__body">{{body_text}}
+      </p>
+    </article>
+
+    {{/each}}
 
   </div>
 </main>

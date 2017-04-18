@@ -12,14 +12,15 @@ CREATE TABLE users (
 
 CREATE TABLE articles (
   id            SERIAL          PRIMARY KEY,
-  author_id     INTEGER         REFERENCES users(id),
+  author_id     INTEGER,
   title         VARCHAR(100)    NOT NULL,
   body_text     VARCHAR(20000)  NOT NULL
 );
 
 INSERT INTO users (username, github_id, password, avatar_url)
 VALUES
-('Wordsworth', NULL, 'daffodils', 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg');
+('Wordsworth', NULL, 'daffodils', 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg'),
+('Hardy', NULL, 'tess', 'http://www.openlettersmonthly.com/issue/wp-content/uploads/2013/01/thomas_hardy.jpg');
 
 INSERT INTO articles (author_id, title, body_text)
 VALUES (1, 'Most Sweet It Is With Unuplifted Eyes', 'Most sweet it is with unuplifted eyes
