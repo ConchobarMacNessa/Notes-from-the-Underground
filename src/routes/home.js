@@ -10,7 +10,6 @@ module.exports = {
         console.log(err);
         return;
       }
-      console.log(articles)
       reply.view('index', { articles:articles });
     });
   },
