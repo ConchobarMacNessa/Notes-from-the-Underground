@@ -5,7 +5,7 @@ module.exports = {
   path: '/write-new-poem',
   handler: (req, reply) => {
     const newPoem = req.payload;
-    newPoem.username = 'Hardy';
+    newPoem.username = 'Hardy'; // TODO: change once login has finished.
 
     post.poems(newPoem, (err) => {
       if (err) {
