@@ -14,7 +14,12 @@ module.exports = {
         console.log(err);
         return reply.view('login_register');
       }
-      reply.view('login_register');
+
+      const username = newUser.username;
+      const avatar = newUser.avatar_url;
+
+      req.cookieAuth.set({ username, avatar });
+      reply.redirect('/');
     });
   },
 };

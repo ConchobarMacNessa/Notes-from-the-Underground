@@ -5,4 +5,5 @@ module.exports = [
   ('./write_new'),
   ('./login-register'),
   ('./register-submit'),
+  ('./login-submit'),
 ].map(require);
