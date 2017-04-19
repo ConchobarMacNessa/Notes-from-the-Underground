@@ -6,4 +6,5 @@ module.exports = [
   ('./login-register'),
   ('./register-submit'),
   ('./login-submit'),
+  ('./logout'),
 ].map(require);
