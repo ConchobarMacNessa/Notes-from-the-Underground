@@ -7,7 +7,7 @@ CREATE TABLE users (
   github_id     VARCHAR(20)   UNIQUE,
   username      VARCHAR(20)   UNIQUE,
   password      VARCHAR(64),
-  avatar_url    VARCHAR(500)  NOT NULL
+  avatar_url    VARCHAR(500)
 );
 
 CREATE TABLE articles (
