@@ -20,11 +20,11 @@ module.exports = {
           console.log(err);
           return reply.view('login_register');
         }
-
         if (isAuthenticated) {
           req.cookieAuth.set({ username, avatar });
           reply.redirect('/');
         } else {
+          console.log('NOT authenticated');
           reply.view('login_register');
         }
       });

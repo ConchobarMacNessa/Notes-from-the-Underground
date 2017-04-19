@@ -1,5 +1,7 @@
 const connect = require('./db_connect');
 
+const hashPwd = require('./../helper_functions/hash_pwd');
+
 const post = {};
 
 post.poems = (newPoem, callback) => {
@@ -16,7 +18,7 @@ post.register = (newUser, callback) => {
   if (!newUser.avatar_url) {
     newUser.avatar_url = 'https://classconnection.s3.amazonaws.com/473/flashcards/1378473/jpg/english-medieval1333077702290.jpg';
   }
-  console.log(newUser);
+
   const checkUsername = 'SELECT username FROM users WHERE username = $1;';
   connect.query(checkUsername, [newUser.username], (err, user) => {
     if (err) {
@@ -25,11 +27,16 @@ post.register = (newUser, callback) => {
     if (!user.rows[0]) {
       const pushNewUser = 'INSERT INTO users (username, password, avatar_url) VALUES ($1, $2, $3)';
 
-      connect.query(pushNewUser, [newUser.username, newUser.password, newUser.avatar_url], (err) => {
+      hashPwd(newUser.password, (err, hash) => {
         if (err) {
           return callback(err);
         }
-        callback(null, `New user ${newUser.username} registered!`);
+        connect.query(pushNewUser, [newUser.username, hash, newUser.avatar_url], (err) => {
+          if (err) {
+            return callback(err);
+          }
+          callback(null, `New user ${newUser.username} registered!`);
+        });
       });
     } else {
       callback(new Error(`Sorry, the username ${newUser.username} is already taken.`));

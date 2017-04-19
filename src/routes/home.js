@@ -10,7 +10,7 @@ module.exports = {
         console.log(err);
         return;
       }
-      reply.view('index', { poems:poems });
+      reply.view('index', { poems:poems, isAuthenticated:false });
     });
   },
 };
