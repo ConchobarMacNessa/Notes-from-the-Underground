@@ -7,7 +7,7 @@ CREATE TABLE users (
   github_id     VARCHAR(20)   UNIQUE,
   username      VARCHAR(20)   UNIQUE,
   password      VARCHAR(64),
-  avatar_url    VARCHAR(500)  NOT NULL
+  avatar_url    VARCHAR(500)
 );
 
 CREATE TABLE articles (
@@ -19,8 +19,8 @@ CREATE TABLE articles (
 
 INSERT INTO users (username, github_id, password, avatar_url)
 VALUES
-('Wordsworth', NULL, 'daffodils', 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg'),
-('Hardy', NULL, 'tess', 'http://www.openlettersmonthly.com/issue/wp-content/uploads/2013/01/thomas_hardy.jpg');
+('Wordsworth', NULL, '$2a$10$xHSNUiMPl93VX1pPdfoD9.QUyuISbLglC7OU3p2vnbjhqZbP1ZHuK', 'http://www.wellsedd.com/Images/WilliamWordsworth(PublicDomain).jpg'),
+('Hardy', NULL, '$2a$10$QwyseE.hu9996s77t7Lt4OpPqFGZE63IV0D9Fm2upfhgyMkZDa4Yq', 'http://www.openlettersmonthly.com/issue/wp-content/uploads/2013/01/thomas_hardy.jpg');
 
 INSERT INTO articles (author_id, title, body_text)
 VALUES (1, 'Most Sweet It Is With Unuplifted Eyes', 'Most sweet it is with unuplifted eyes
