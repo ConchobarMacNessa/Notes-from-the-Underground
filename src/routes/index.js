@@ -7,4 +7,6 @@ module.exports = [
   ('./register-submit'),
   ('./login-submit'),
   ('./logout'),
+  ('./login_oauth'),
+  ('./welcome'),
 ].map(require);
