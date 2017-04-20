@@ -44,4 +44,13 @@ post.register = (newUser, callback) => {
   });
 };
 
+post.fbUser = (userDetails, callback) => {
+  connect.query('INSERT INTO users (username, avatar_url) VALUES ($1, $2) RETURNING id', [userDetails.username, userDetails.avatar_url], (err, res) => {
+    if (err) return callback(err);
+
+    callback(null, res);
+    console.log(res);
+  });
+};
+
 module.exports = post;

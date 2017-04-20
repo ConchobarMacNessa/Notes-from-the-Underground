@@ -1,4 +1,5 @@
 # Notes-from-the-Underground
 
-
-https://developers.facebook.com/docs/apps/register#
+Links for logging in with FB
+[FB developers site](https://developers.facebook.com/docs/apps/register)#
+[dwyl node module](https://www.npmjs.com/package/hapi-auth-facebook)
