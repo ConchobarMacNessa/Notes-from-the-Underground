@@ -29,16 +29,24 @@ module.exports = {
             return err;
           }
           const parsedBody = JSON.parse(body2);
-          const username = parsedBody.name;
+          const userDetails = {};
+          userDetails.username = parsedBody.name;
           const userId = parsedBody.id;
 
           const imageUrl = `https://graph.facebook.com/${userId}?fields=picture.type(large)&access_token=${accessToken}`;
-          request(imageUrl, (err, res, body3) => {
-            if (err) {
-              return err;
+          request(imageUrl, (err2, res2, body3) => {
+            if (err2) {
+              return err2;
             }
             const parsed = JSON.parse(body3);
-            const avatar_url = parsed.picture.data.url;
+            userDetails.avatar_url = parsed.picture.data.url;
+            post.fbUser(userDetails, (err3) => {
+              if (err3) {
+                return err; 3;
+              }
+            });
+            req.cookieAuth.set({ accessToken, username: userDetails.username, avatar_url: userDetails.avatar_url });
+            reply.redirect('/');
           });
         });
       });

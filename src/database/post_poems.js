@@ -49,7 +49,6 @@ post.fbUser = (userDetails, callback) => {
     if (err) return callback(err);
 
     callback(null, res);
-    console.log(res);
   });
 };
 
