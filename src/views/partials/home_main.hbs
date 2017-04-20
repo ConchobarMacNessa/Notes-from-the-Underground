@@ -3,7 +3,7 @@
 
     {{#each poems}}
 
-    <article class="poem">
+    <article class="poem" {{#if self}} style="background-color:red" {{/if}}>
       <header class="poem__header">
         <div class="poem__author">
           {{username}}

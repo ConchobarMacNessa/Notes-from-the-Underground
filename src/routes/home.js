@@ -10,7 +10,14 @@ module.exports = {
         console.log(err);
         return;
       }
-      reply.view('index', { poems:poems, isAuthenticated:false });
+      if (req.auth.isAuthenticated){
+        poems.forEach((poem) => {
+          if (poem.username === req.auth.credentials.username) {
+            poem.self = true;
+          }
+        })
+      }
+      reply.view('index', { poems:poems /*isAuthenticated:false*/ });
     });
   },
 };
