@@ -13,7 +13,7 @@ module.exports = {
         console.log(err);
         reply.view('login_register');
       }
-      const avatar = user.avatar_url;
+      const avatar_url = user.avatar_url;
 
       bcrypt.compare(password, user.password, (err, isAuthenticated) => {
         if (err) {
@@ -21,10 +21,9 @@ module.exports = {
           return reply.view('login_register');
         }
         if (isAuthenticated) {
-          req.cookieAuth.set({ username, avatar });
+          req.cookieAuth.set({ username, avatar_url });
           reply.redirect('/');
         } else {
-          console.log('NOT authenticated');
           reply.view('login_register');
         }
       });
