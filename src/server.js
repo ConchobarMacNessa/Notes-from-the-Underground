@@ -29,6 +29,7 @@ server.register([inert, vision, cookieAuthModule, contextCredentials], (err) => 
     cookie: 'Underground-Cookie',
     isSecure: false, // change when on heroku
     ttl: 24 * 60 * 60 * 1000,
+    isSameSite: false,
   });
 
   server.views(handlebars);
