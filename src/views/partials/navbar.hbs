@@ -1,11 +1,21 @@
 <header class="navbar">
   <div class="navbar__container">
-    <a href="/write-new-poem" class="navbar__link">Submit Poem</a>
     <a href="/" class="navbar__link">Back Home</a>
-    <a href="/login-register" class="navbar__link">Login/register</a>
+    
+    {{#if credentials.username}}
+    <a href="/write-new-poem" class="navbar__link">Submit Poem</a>
+
     <a href="/logout" class="navbar__link">Logout</a>
 
-    <p>login, register, profile, all to go here</p>
+    <a href='/profile' class = "navbar__link">Profile</a>
+
+      <img class="navbar__avatar" src="{{credentials.avatar_url}}" alt="user avatar"/>
+      <div class="navbar__welcome">Hi, {{credentials.username}}</div>
+
+    {{else}}
+    <a href="/login-register" class="navbar__link">Login/register</a>
+    {{/if}}
+
 
   </div>
 </header>

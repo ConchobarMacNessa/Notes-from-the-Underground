@@ -16,9 +16,9 @@ module.exports = {
       }
 
       const username = newUser.username;
-      const avatar = newUser.avatar_url;
+      const avatar_url = newUser.avatar_url;
 
-      req.cookieAuth.set({ username, avatar });
+      req.cookieAuth.set({ username, avatar_url });
       reply.redirect('/');
     });
   },
