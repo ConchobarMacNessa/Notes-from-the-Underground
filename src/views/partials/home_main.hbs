@@ -3,8 +3,11 @@
 
     {{#each poems}}
 
-    <article class="poem">
+    <article class="poem" {{#if self}} style="background-color:red" {{/if}}>
       <header class="poem__header">
+        {{#if self}}
+          <a class='poem__delete' href="/delete/{{username}}/{{id}}">Delete</a>
+        {{/if}}
         <div class="poem__author">
           {{username}}
         </div>
