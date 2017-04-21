@@ -9,4 +9,5 @@ module.exports = [
   ('./logout'),
   ('./login_oauth'),
   ('./welcome'),
+  ('./delete'),
 ].map(require);
