@@ -42,7 +42,7 @@ module.exports = {
             userDetails.avatar_url = parsed.picture.data.url;
             post.fbUser(userDetails, (err3) => {
               if (err3) {
-                return err; 3;
+                return err;
               }
             });
             req.cookieAuth.set({ accessToken, username: userDetails.username, avatar_url: userDetails.avatar_url });
