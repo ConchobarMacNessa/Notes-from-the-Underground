@@ -10,7 +10,7 @@ module.exports = {
     return deletePoem(req.params.id, (err) => {
       if (err) {
         console.log(err);
-        return reply('Something went wrong, sorry!');
+        return reply('Something went wrong, sorry!'); // TODO: create new page for if error.
       }
       return reply.redirect('/');
     });

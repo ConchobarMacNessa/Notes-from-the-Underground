@@ -7,19 +7,16 @@ module.exports = {
   handler: (req, reply) => {
     get.poems((err, poems) => {
       if (err) {
-        console.log(err);
-        return;
+        return err;
       }
-      // poems.home = true;
       if (req.auth.isAuthenticated){
         poems.forEach((poem) => {
           if (poem.username === req.auth.credentials.username) {
             poem.self = true;
           }
-          console.log(poem.id);
         })
       }
-      reply.view('index', { poems:poems /*isAuthenticated:false*/ });
+      reply.view('index', { poems:poems /*isAuthenticated:false*/ }); //TODO: is this needed?
     });
   },
 };

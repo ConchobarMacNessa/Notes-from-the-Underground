@@ -11,14 +11,14 @@ module.exports = {
     loginAuth(username, (err, user) => {
       if (err) {
         console.log(err);
-        reply.view('login_register');
+        reply.view('login_register'); // TODO: create new page for if error.
       }
       const avatar_url = user.avatar_url;
 
       bcrypt.compare(password, user.password, (err, isAuthenticated) => {
         if (err) {
           console.log(err);
-          return reply.view('login_register');
+          return reply.view('login_register'); // TODO: create new page for if error.
         }
         if (isAuthenticated) {
           req.cookieAuth.set({ username, avatar_url });
